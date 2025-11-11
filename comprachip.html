@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>comprar chip</title>
+  <link rel="stylesheet" href="produtos.css">
+  <link rel="stylesheet" href="agromed.css">
+  <link rel="stylesheet" href="compra.css">
+</head>
+
+<body>
+  <div class="top-bar">
+    <span><strong>DESCONTO</strong> NO PIX</span>
+    <span><strong>FRETE GRÁTIS</strong> - NAS COMPRAS ACIMA DE <strong>R$</strong></span>
+    <span><strong>PARCELAS</strong> SEM JUROS</span>
+  </div>
+  <header class="main-header">
+    <div class="logo-area">
+
+      <img src="imgs/logoagromed.png" alt="Logo AGROMED" class="logo">
+      <div class="logo-text">
+        <span class="brand"></span>
+        <span class="subtitle">PRODUTOS AGROPECUÁRIOS</span>
+      </div>
+    </div>
+    <div class="search-area">
+      <input type="text" placeholder="FAÇA SUA BUSCA...">
+      <button class="search-btn">&#128269;</button>
+    </div>
+    <div class="actions">
+      <div class="login-cadastro">
+        <div id="container-profile">
+          <button onclick="toggleLogin()" id="btn-prf">LOGIN</button>
+          <section id="login" style="display: none;">
+            <form action="logar" id="form-login" method="post">
+              <input type="number" minlength="11" maxlength="11" id="cpfbtn" placeholder="Digite seu CPF" required>
+              <input type="email" id="emailbtn" placeholder="Digite seu email" required>
+              <div id="passwrd">
+                <input type="password" id="passbtn" placeholder="Digite sua senha" required>
+                <span id="eye" onclick="reveal()">👁</span>
+              </div>
+              <button type="submit" class="login-btn">
+                <a href="#" id="cds-a" onclick="toggleCadastro(event)">cadastro</a>
+              </button>
+            </form>
+            <form action="cadastro" id="form-cds2" method="post" style="display: none;">
+              <input type="text" id="namebtn" placeholder="Digite seu nome" required>
+              <input type="email" id="emailbtn2" placeholder="Digite seu email" required>
+              <input type="number" id="cpfbtn2" placeholder="Digite seu CPF" required>
+              <input type="tel" id="telbtn" placeholder="Digite seu telefone" required>
+              <input type="password" id="passbtn2" placeholder="Digite sua senha" required>
+              <span id="eye2" onclick="reveal2()">👁</span>
+
+            </form>
+          </section>
+        </div>
+      </div>
+      <button class="cart-btn" id="openCart">
+        <span class="icon">&#128722;</span>
+        <span>Carrinho</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+
+    <script>
+      // Mostra/oculta o formulário de login
+      function toggleLogin() {
+        var loginSection = document.getElementById("login");
+        loginSection.style.display = loginSection.style.display === "none" ? "block" : "none";
+        // Esconde o cadastro se estiver aberto
+        document.getElementById("form-cds2").style.display = "none";
+      }
+      // Mostra/oculta o formulário de cadastro
+      function toggleCadastro(e) {
+        e.preventDefault();
+        var cadastroForm = document.getElementById("form-cds2");
+        cadastroForm.style.display = cadastroForm.style.display === "none" ? "block" : "none";
+        // Esconde o login se estiver aberto
+        document.getElementById("form-login").style.display = "none";
+      }
+      // Mostrar/ocultar senha login
+      function reveal() {
+        var x = document.getElementById("passbtn");
+        x.type = x.type === "password" ? "text" : "password";
+      }
+      // Mostrar/ocultar senha cadastro
+      function reveal2() {
+        var x = document.getElementById("passbtn2");
+        x.type = x.type === "password" ? "text" : "password";
+      }
+    </script>
+  </header>
+  <nav class="main-nav">
+    <a href="chip.html">CHIP</a>
+    <a href="suplementos.html">SUPLEMENTOS</a>
+    <a href="rações.html">RAÇÕES</a>
+    <a href="acessorios.html">ACESSÓRIOS</a>
+    <a href="medicamentos.html">MEDICAMENTOS</a>
+    <a href="fazenda.html">FAZENDA</a>
+  </nav>
+  <div class="ordenar">
+    <h1>chip</h1>
+  </div>
+  </section>
+  <nav class="inicio">
+    <a href="index.html">Home</a>
+  </nav>
+  <main class="main-content">
+    <section class="product-section">
+      <div class="product-images">
+        <div class="image-slider" id="chipSlider" tabindex="0" aria-roledescription="carousel">
+          <div class="slides">
+            <div class="slide"><img src="imgs/vaca.png" alt="chip - vista frontal"></div>
+            <div class="slide"><img src="imgs/chip.png" alt="Chip - vista lateral"></div>
+          </div>
+
+          <!-- setas -->
+          <button class="img-arrow img-prev" id="chipPrev" aria-label="Imagem anterior">‹</button>
+          <button class="img-arrow img-next" id="chipNext" aria-label="Próxima imagem">›</button>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const slider = document.getElementById('chipSlider');
+          if (!slider) return;
+
+          const slidesWrap = slider.querySelector('.slides');
+          const slides = slider.querySelectorAll('.slide');
+          const prevBtn = document.getElementById('chipPrev');
+          const nextBtn = document.getElementById('chipNext');
+          let index = 0;
+          const total = slides.length;
+
+          function goTo(i) {
+            console.log('chipSlider goTo', i);
+            index = (i + total) % total;
+            slidesWrap.style.transform = 'translateX(-' + (index * 100) + '%)';
+          }
+
+          if (nextBtn) nextBtn.addEventListener('click', (e) => { console.log('chipSlider next click', e); goTo(index + 1); });
+          if (prevBtn) prevBtn.addEventListener('click', (e) => { console.log('chipSlider prev click', e); goTo(index - 1); });
+
+          // suporte por teclado quando o slider está focado
+          slider.addEventListener('keydown', (e) => {
+            console.log('chipSlider keydown', e.key);
+            if (e.key === 'ArrowLeft') goTo(index - 1);
+            if (e.key === 'ArrowRight') goTo(index + 1);
+          });
+
+          // inicializa posição
+          goTo(0);
+        })();
+      </script>
+      <div class="product-info">
+        <h1 class="product-title">chip para manitoramento de gado</h1>
+        <div class="product-rating">
+          ★★★★★ <span class="reviews">(12)</span>
+        </div>
+        <div class="product-price">
+          <span class="price-pix">R$ 822,22 <span class="pix-label">no pix</span></span><br>
+          <span class="price-card">R$ 829,22 no cartão</span><br>
+          <span class="price-parcel">2x de R$ 411,11</span>
+        </div>
+        <div class="qty-controls">
+          <button class="qty-btn" id="minusBtn">-</button>
+          <span id="qty">1</span>
+          <button class="qty-btn" id="plusBtn">+</button>
+        </div>
+        <button class="buy-btn" id="addToCart">COMPRAR</button>
+        <!-- ...código anterior... -->
+        <div class="product-desc">
+          <b>O chip para monitoramento de gado</b> é um dispositivo inovador que permite o acompanhamento em tempo real da saúde e localização dos animais.<br><br>
+          <b>PARA QUE SERVE</b><br>
+          O chip e responsavel por cuidar da saúde e bem-estar dos animais, monitorando sua atividade, localização, sinais vitais e comportamento.<br><br>
+          <b>TIPO ANIMAL</b><br>
+          Bovinos<br><br>
+          <b>PRINCIPAL FINALIDADE</b><br>
+          manitorar localização do seu animal, sua saúde e comportamento.<br><br>
+          <b>MODO DE UTILIZAÇÃO</b><br>
+          aplicação por meio de agulha em sua pele <br>
+        </div>
+      </div>
+    </section>
+  </main>
+  <main class="produtos">
+    <!-- Produto 1 -->
+    <div class="card">
+      <img src="imgs/suplemento proteico.png" alt="Suplemento Proteico 30kg">
+      <h3>Suplemento Proteico 30kg</h3>
+      <p class="preco-pix">R$ 115,00 no pix</p>
+      <p class="preco-cartao">R$ 125,00 no cartão</p>
+      <p class="parcelamento">2x de R$ 62,50</p>
+    </div>
+
+    <!-- Produto 2 -->
+    <div class="card destaque">
+      <span class="tag">PRODUTO PRÓXIMO DO VENCIMENTO</span>
+      <img src="imgs/ureia.png" alt="Ureia Pecuária 25kg">
+      <h3>Ureia Pecuária 25kg</h3>
+      <p class="preco-pix">R$ 89,00 no pix</p>
+      <p class="preco-cartao">R$ 95,00 no cartão</p>
+      <p class="parcelamento">2x de R$ 47,50</p>
+    </div>
+
+    <!-- Produto 3 -->
+    <div class="card desconto">
+      <span class="tag verde">10% off</span>
+      <img src="imgs/fosfato.png" alt="Fosfato Bicálcico 20kg">
+      <h3>Fosfato Bicálcico 20kg</h3>
+      <p class="preco-antigo">R$ 110,00</p>
+      <p class="preco-pix">R$ 99,00 no pix</p>
+      <p class="preco-cartao">R$ 105,00 no cartão</p>
+      <p class="parcelamento">2x de R$ 52,50</p>
+    </div>
+
+    <!-- Produto 4 -->
+    <div class="card">
+      <img src="imgs/proteinado.png" alt="Sal Proteinado 25kg">
+      <h3>Sal Proteinado 25kg</h3>
+      <p class="preco-pix">R$ 75,00 no pix</p>
+      <p class="preco-cartao">R$ 80,00 no cartão</p>
+      <p class="parcelamento">2x de R$ 40,00</p>
+    </div>
+    <div class="card destaque">
+      <span class="tag">restão poucos disponiveis</span>
+      <img src="imgs/bebedouro.png" alt="Bebedouro Automático">
+      <h3>Bebedouro Automático</h3>
+      <p class="preco-pix">R$ 499,00 no pix</p>
+      <p class="preco-cartao">R$ 549,00 no cartão</p>
+      <p class="parcelamento">2x de R$ 274,50</p>
+    </div>
+
+    <!-- Acessório 3 -->
+    <div class="card desconto">
+      <span class="tag verde">% off</span>
+      <img src="imgs/cocho.png" alt="Cocho de Alimentação">
+      <h3>Cocho de Alimentação</h3>
+      <p class="preco-antigo">R$ 350,00</p>
+      <p class="preco-pix">R$ 297,50 no pix</p>
+      <p class="preco-cartao">R$ 315,00 no cartão</p>
+      <p class="parcelamento">2x de R$ 157,50</p>
+    </div>
+
+    <!-- Acessório 4 -->
+    <div class="card">
+      <img src="imgs/canga.png" alt="Canga para Gado">
+      <h3>Canga para Gado</h3>
+      <p class="preco-pix">R$ 89,90 no pix</p>
+      <p class="preco-cartao">R$ 99,90 no cartão</p>
+      <p class="parcelamento">2x de R$ 49,95</p>
+    </div>
+
+    <!-- Acessório 5 -->
+    <div class="card">
+      <img src="imgs/brinco.png" alt="Brinco de Identificação">
+      <h3>Brinco de Identificação</h3>
+      <p class="preco-pix">R$ 29,90 no pix</p>
+      <p class="preco-cartao">R$ 34,90 no cartão</p>
+      <p class="parcelamento">2x de R$ 17,45</p>
+    </div>
+
+  </main>
+  <aside class="cart-overlay" id="cartOverlay">
+    <div class="cart-side">
+      <div>
+        <div class="cart-header">
+          <span class="cart-title">MEU CARRINHO</span>
+          <button class="cart-close" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-frete">
+          <span class="frete-ok" id="freteMsg">PARABÉNS, VOCÊ GANHOU FRETE GRÁTIS!</span>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-subtotal">
+          <span>SUBTOTAL</span>
+          <span id="cartSubtotal">R$822,22 </span>
+        </div>
+        <div class="cart-desconto">
+          <span>DESCONTO PIX</span>
+          <span id="cartDesconto">R$ 20,00</span>
+        </div>
+        <div class="cart-total">
+          <span>TOTAL</span>
+          <span id="cartTotal">R$ 802,22</span>
+        </div>
+        <button class="checkout-btn">FINALIZAR COMPRA</button>
+      </div>
+    </div>
+  </aside>
+  <script>
+    // Elementos
+    const produto = {
+      id: 1,
+      nome: "chip para monitoramento de gado",
+      precoPix: 822.22,
+      precoCartao: 829.22,
+      imagem: "imgs/chip.png"
+    };
+
+    // Estado do carrinho
+    let carrinho = [];
+    let quantidade = 1;
+
+    // Elementos
+    const qtySpan = document.getElementById('qty');
+    const minusBtn = document.getElementById('minusBtn');
+    const plusBtn = document.getElementById('plusBtn');
+    const addToCartBtn = document.getElementById('addToCart');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const openCartBtn = document.getElementById('openCart');
+    const closeCartBtn = document.getElementById('closeCart');
+    const cartItemsDiv = document.getElementById('cartItems');
+    const cartCount = document.getElementById('cartCount');
+    const cartSubtotal = document.getElementById('cartSubtotal');
+    const cartDesconto = document.getElementById('cartDesconto');
+    const cartTotal = document.getElementById('cartTotal');
+    const freteMsg = document.getElementById('freteMsg');
+
+    // Quantidade produto
+    minusBtn.onclick = () => {
+      if (quantidade > 1) {
+        quantidade--;
+        qtySpan.textContent = quantidade;
+      }
+    };
+    plusBtn.onclick = () => {
+      quantidade++;
+      qtySpan.textContent = quantidade;
+    };
+
+    // Abrir/fechar carrinho
+    openCartBtn.onclick = () => {
+      cartOverlay.classList.add('active');
+      renderCarrinho();
+    };
+    closeCartBtn.onclick = () => {
+      cartOverlay.classList.remove('active');
+    };
+    cartOverlay.onclick = (e) => {
+      if (e.target === cartOverlay) cartOverlay.classList.remove('active');
+    };
+
+    // Adicionar ao carrinho
+    addToCartBtn.onclick = () => {
+      let item = carrinho.find(i => i.id === produto.id);
+      if (item) {
+        item.qtd += quantidade;
+      } else {
+        carrinho.push({
+          id: produto.id,
+          nome: produto.nome,
+          precoPix: produto.precoPix,
+          precoCartao: produto.precoCartao,
+          imagem: produto.imagem,
+          qtd: quantidade
+        });
+      }
+      quantidade = 1;
+      qtySpan.textContent = quantidade;
+      updateCartCount();
+      renderCarrinho();
+      cartOverlay.classList.add('active');
+    };
+
+    // Renderizar carrinho
+    function renderCarrinho() {
+      cartItemsDiv.innerHTML = '';
+      let subtotal = 0;
+      let desconto = 0;
+      let totalItens = 0;
+      carrinho.forEach(item => {
+        subtotal += item.precoCartao * item.qtd;
+        desconto += (item.precoCartao - item.precoPix) * item.qtd;
+        totalItens += item.qtd;
+        // Item do carrinho
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <img src="${item.imagem}" class="cart-item-img" alt="">
+          <div class="cart-item-info">
+            <div class="cart-item-title">${item.nome}</div>
+            <div class="cart-item-price">R$ ${item.precoPix.toFixed(2)} <span style="color:#888;font-size:12px;">no pix</span></div>
+            <div class="cart-item-controls">
+              <button class="qty-btn" onclick="window.updateQtd(${item.id},-1)">-</button>
+              <span>${item.qtd}</span>
+              <button class="qty-btn" onclick="window.updateQtd(${item.id},1)">+</button>
+              <button class="qty-btn" style="background:#f8d7da;color:#a00;" onclick="window.removeItem(${item.id})">&times;</button>
+            </div>
+          </div>
+        `;
+        cartItemsDiv.appendChild(div);
+      });
+      cartSubtotal.textContent = "R$ " + subtotal.toFixed(2);
+      cartDesconto.textContent = "R$ " + desconto.toFixed(2);
+      cartTotal.textContent = "R$ " + (subtotal - desconto).toFixed(2);
+      cartCount.textContent = totalItens;
+      freteMsg.style.display = (subtotal - desconto) >= 100 ? 'block' : 'none';
+    }
+
+    // Atualizar quantidade no carrinho
+    window.updateQtd = function (id, delta) {
+      let item = carrinho.find(i => i.id === id);
+      if (!item) return;
+      item.qtd += delta;
+      if (item.qtd < 1) item.qtd = 1;
+      renderCarrinho();
+      updateCartCount();
+    };
+
+    // Remover item
+    window.removeItem = function (id) {
+      carrinho = carrinho.filter(i => i.id !== id);
+      renderCarrinho();
+      updateCartCount();
+    };
+
+    // Atualizar contador do carrinho
+    function updateCartCount() {
+      let total = carrinho.reduce((sum, i) => sum + i.qtd, 0);
+      cartCount.textContent = total;
+    }
+
+    // Inicialização
+    updateCartCount();
+    renderCarrinho();
+  </script>
+</body>
+
+</html>
