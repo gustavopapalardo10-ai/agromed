@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicamentos</title>
+   <link rel="stylesheet" href="produtos.css" >
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="compra.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+  <div class="top-bar">
+    <span><strong>DESCONTO</strong> NO PIX</span>
+    <span><strong>FRETE GRÁTIS</strong> - NAS COMPRAS ACIMA DE <strong>R$</strong> 200,00</span>
+    <span><strong>PARCELAS</strong> SEM JUROS</span>
+  </div>
+  <header class="main-header">
+    <div class="logo-area">
+      <img src="imgs/logoagromed.png" alt="Logo AGROMED" class="logo">
+      <div class="logo-text">
+        <span class="brand"></span>
+        <span class="subtitle">PRODUTOS AGROPECUÁRIOS</span>
+      </div>
+    </div>
+    <div class="search-area">
+      <input type="text" placeholder="FAÇA SUA BUSCA...">
+      <button class="search-btn">&#128269;</button>
+    </div>
+        <div class="actions">
+  <div class="login-cadastro">
+    <div id="container-profile">
+      <button onclick="toggleLogin()" id="btn-prf">LOGIN</button>
+      <section id="login" style="display: none;">
+        <form action="logar" id="form-login" method="post">
+          <input type="number" minlength="11" maxlength="11" id="cpfbtn" placeholder="Digite seu CPF" required>
+          <input type="email" id="emailbtn" placeholder="Digite seu email" required>
+          <div id="passwrd">
+            <input type="password" id="passbtn" placeholder="Digite sua senha" required>
+            <span id="eye" onclick="reveal()">👁</span>
+          </div>
+          <button type="submit" class="login-btn">
+          <a href="#" id="cds-a" onclick="toggleCadastro(event)">cadastro</a>
+        </button>
+        </form>
+        <form action="cadastro" id="form-cds2" method="post" style="display: none;">
+          <input type="text" id="namebtn" placeholder="Digite seu nome" required>
+          <input type="email" id="emailbtn2" placeholder="Digite seu email" required>
+          <input type="number" id="cpfbtn2" placeholder="Digite seu CPF" required>
+          <input type="tel" id="telbtn" placeholder="Digite seu telefone" required>
+          <input type="password" id="passbtn2" placeholder="Digite sua senha" required>
+          <span id="eye2" onclick="reveal2()">👁</span>
+
+        </form>
+      </section>
+    </div>
+  </div>
+  <button class="cart-btn" id="openCart">
+        <span class="icon">&#128722;</span>
+        <span>Carrinho</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+</div>
+
+<script>
+  // Mostra/oculta o formulário de login
+  function toggleLogin() {
+    var loginSection = document.getElementById("login");
+    loginSection.style.display = loginSection.style.display === "none" ? "block" : "none";
+    // Esconde o cadastro se estiver aberto
+    document.getElementById("form-cds2").style.display = "none";
+  }
+  // Mostra/oculta o formulário de cadastro
+  function toggleCadastro(e) {
+    e.preventDefault();
+    var cadastroForm = document.getElementById("form-cds2");
+    cadastroForm.style.display = cadastroForm.style.display === "none" ? "block" : "none";
+    // Esconde o login se estiver aberto
+    document.getElementById("form-login").style.display = "none";
+  }
+  // Mostrar/ocultar senha login
+  function reveal() {
+    var x = document.getElementById("passbtn");
+    x.type = x.type === "password" ? "text" : "password";
+  }
+  // Mostrar/ocultar senha cadastro
+  function reveal2() {
+    var x = document.getElementById("passbtn2");
+    x.type = x.type === "password" ? "text" : "password";
+  }
+</script>
+  </header>
+  <nav class="main-nav">
+    <a href="chip.html">CHIP</a>
+    <a href="suplementos.html">SUPLEMENTOS</a>
+    <a href="rações.html">RAÇÕES</a>
+    <a href="acessorios.html">ACESSÓRIOS</a>
+    <a href="medicamentos.html">MEDICAMENTOS</a>
+    <a href="fazenda.html">FAZENDA</a>
+  </nav>
+  
+  </section>
+    <div class="ordenar">
+      <h1>Medicamento</h1>
+    </div>
+  </section>
+  <nav class="inicio">
+    <a href="index.html">Home</a>
+  </nav>
+ <div class="qty-controls">
+          <button class="qty-btn" id="minusBtn"></button>
+          <span id="qty"></span>
+          <button class="qty-btn" id="plusBtn"></button>
+        </div>
+  <main class="produtos">
+    <!-- Produto 1 -->
+    <div class="card">
+      <img src="imgs/remedio verrutrat.png" alt="Hormônio Chorulon">
+      <h3>Remedio verrutrat,conten 20ML </h3>
+      <p class="preco-pix">R$ 65,30 no pix</p>
+      <p class="preco-cartao">R$ 72,00 no cartão</p>
+      <p class="parcelamento">2x de R$ 38,00</p>
+    </div>
+
+    <!-- Produto 2 -->
+    <div class="card destaque">
+      <span class="tag">PRODUTO PRÓXIMO DO VENCIMENTO</span>
+      <img src="imgs/remedio ripercol.png" alt="Suplemento Potenay">
+      <h3>Remedio ripercol,contem 30ML</h3>
+      <p class="preco-pix">R$ 11,00 no pix</p>
+      <p class="preco-cartao">R$ 14,49 no cartão</p>
+      <p class="parcelamento">2x de R$ 7,99</p>
+    </div>
+
+    <!-- Produto 3 -->
+    <div class="card desconto">
+      <span class="tag verde">% off</span>
+      <img src="imgs/remedio corta curso.png" alt="Antibiótico Oxitetraciclina Terramicina">
+      <h3>Remedio corta curso, contem 50 mL</h3>
+      <p class="preco-antigo">R$ 75,00</p>
+      <p class="preco-pix">R$ 61,59 no pix</p>
+      <p class="preco-cartao">R$ 65,25 no cartão</p>
+      <p class="parcelamento">2x de R$ 33,25</p>
+    </div>
+
+    <!-- Produto 4 -->
+    <div class="card">
+      <img src="imgs/remedio master.png" alt="Antibiótico Terramicina LA">
+      <h3>Remdio master, cantem 20 mL</h3>
+      <p class="preco-pix">R$ 88,04 no pix</p>
+      <p class="preco-cartao">R$ 91,25 no cartão</p>
+      <p class="parcelamento">2x de R$ 47,25</p>
+    </div>
+
+    <!-- Produto 5 -->
+    <div class="card">
+      <img src="imgs/remedio maxicam.png" alt="Antiparasitário Ivomec">
+      <h3>Remedio maxicam,contem 50ml</h3>
+      <p class="preco-pix">R$ 89,90 no pix</p>
+      <p class="preco-cartao">R$ 94,50 no cartão</p>
+      <p class="parcelamento">2x de R$ 47,25</p>
+    </div>
+
+    <!-- Produto 6 -->
+    <div class="card">
+      <img src="imgs/remedio sincrocio.png" alt="Vermífugo Albendazol">
+      <h3>Remedio sincrocio, contem 20mL</h3>
+      <p class="preco-pix">R$ 58,50 no pix</p>
+      <p class="preco-cartao">R$ 60,00 no cartão</p>
+      <p class="parcelamento">2x de R$ 30,00</p>
+    </div>
+
+    <!-- Produto 7 -->
+    <div class="card desconto">
+      <span class="tag verde">10% off</span>
+      <img src="imgs/remedio ranger.png" alt="Vacina Aftosa">
+      <h3>Remedio ranger, contem 500mL</h3>
+      <p class="preco-antigo">R$ 108,99</p>
+      <p class="preco-pix">R$ 101,85 no pix</p>
+      <p class="preco-cartao">R$ 103,00 no cartão</p>
+      <p class="parcelamento">2x de R$ 53,00</p>
+    </div>
+
+    <!-- Produto 8 -->
+    <div class="card destaque">
+      <span class="tag">LANÇAMENTO</span>
+      <img src="imgs/remedio mercepton.png" alt="Suplemento Mineral Bovino">
+      <h3>Remedio mercepton, contem 100mL</h3>
+      <p class="preco-pix">R$ 51,99 no pix</p>
+      <p class="preco-cartao">R$ 52,50,00 no cartão</p>
+      <p class="parcelamento">2x de R$ 28,00</p>
+    </div>
+  </main>
+<aside class="cart-overlay" id="cartOverlay">
+    <div class="cart-side">
+      <div>
+        <div class="cart-header">
+          <span class="cart-title">MEU CARRINHO</span>
+          <button class="cart-close" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-frete">
+          <span class="frete-ok" id="freteMsg">PARABÉNS, VOCÊ GANHOU FRETE GRÁTIS!</span>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-subtotal">
+          <span>SUBTOTAL</span>
+          <span id="cartSubtotal">R$ 0,00</span>
+        </div>
+        <div class="cart-desconto">
+          <span>DESCONTO PIX</span>
+          <span id="cartDesconto">R$ 0,00</span>
+        </div>
+        <div class="cart-total">
+          <span>TOTAL</span>
+          <span id="cartTotal">R$ 0,00</span>
+        </div>
+        <button class="checkout-btn">FINALIZAR COMPRA</button>
+      </div>
+    </div>
+  </aside>
+  <script>
+    // Produto base
+    const produto = {
+      id: 1,
+      nome: "Aminomix Forte - Suplemento Mineral para Equinos - 2,5kg",
+      precoPix: 299.90,
+      precoCartao: 369.90,
+      imagem: "imgs/vitaminas.png"
+    };
+
+    // Estado do carrinho
+    let carrinho = [];
+    let quantidade = 1;
+
+    // Elementos
+    const qtySpan = document.getElementById('qty');
+    const minusBtn = document.getElementById('minusBtn');
+    const plusBtn = document.getElementById('plusBtn');
+    const addToCartBtn = document.getElementById('addToCart');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const openCartBtn = document.getElementById('openCart');
+    const closeCartBtn = document.getElementById('closeCart');
+    const cartItemsDiv = document.getElementById('cartItems');
+    const cartCount = document.getElementById('cartCount');
+    const cartSubtotal = document.getElementById('cartSubtotal');
+    const cartDesconto = document.getElementById('cartDesconto');
+    const cartTotal = document.getElementById('cartTotal');
+    const freteMsg = document.getElementById('freteMsg');
+
+    // Quantidade produto
+    minusBtn.onclick = () => {
+      if (quantidade > 1) {
+        quantidade--;
+        qtySpan.textContent = quantidade;
+      }
+    };
+    plusBtn.onclick = () => {
+      quantidade++;
+      qtySpan.textContent = quantidade;
+    };
+
+    // Abrir/fechar carrinho
+    openCartBtn.onclick = () => {
+      cartOverlay.classList.add('active');
+      renderCarrinho();
+    };
+    closeCartBtn.onclick = () => {
+      cartOverlay.classList.remove('active');
+    };
+    cartOverlay.onclick = (e) => {
+      if (e.target === cartOverlay) cartOverlay.classList.remove('active');
+    };
+
+    // Adicionar ao carrinho
+    addToCartBtn.onclick = () => {
+      let item = carrinho.find(i => i.id === produto.id);
+      if (item) {
+        item.qtd += quantidade;
+      } else {
+        carrinho.push({
+          id: produto.id,
+          nome: produto.nome,
+          precoPix: produto.precoPix,
+          precoCartao: produto.precoCartao,
+          imagem: produto.imagem,
+          qtd: quantidade
+        });
+      }
+      quantidade = 1;
+      qtySpan.textContent = quantidade;
+      updateCartCount();
+      renderCarrinho();
+      cartOverlay.classList.add('active');
+    };
+
+    // Renderizar carrinho
+    function renderCarrinho() {
+      cartItemsDiv.innerHTML = '';
+      let subtotal = 0;
+      let desconto = 0;
+      let totalItens = 0;
+      carrinho.forEach(item => {
+        subtotal += item.precoCartao * item.qtd;
+        desconto += (item.precoCartao - item.precoPix) * item.qtd;
+        totalItens += item.qtd;
+        // Item do carrinho
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <img src="${item.imagem}" class="cart-item-img" alt="">
+          <div class="cart-item-info">
+            <div class="cart-item-title">${item.nome}</div>
+            <div class="cart-item-price">R$ ${item.precoPix.toFixed(2)} <span style="color:#888;font-size:12px;">no pix</span></div>
+            <div class="cart-item-controls">
+              <button class="qty-btn" onclick="window.updateQtd(${item.id},-1)">-</button>
+              <span>${item.qtd}</span>
+              <button class="qty-btn" onclick="window.updateQtd(${item.id},1)">+</button>
+              <button class="qty-btn" style="background:#f8d7da;color:#a00;" onclick="window.removeItem(${item.id})">&times;</button>
+            </div>
+          </div>
+        `;
+        cartItemsDiv.appendChild(div);
+      });
+      cartSubtotal.textContent = "R$ " + subtotal.toFixed(2);
+      cartDesconto.textContent = "R$ " + desconto.toFixed(2);
+      cartTotal.textContent = "R$ " + (subtotal - desconto).toFixed(2);
+      cartCount.textContent = totalItens;
+      freteMsg.style.display = (subtotal - desconto) >= 100 ? 'block' : 'none';
+    }
+
+    // Atualizar quantidade no carrinho
+    window.updateQtd = function(id, delta) {
+      let item = carrinho.find(i => i.id === id);
+      if (!item) return;
+      item.qtd += delta;
+      if (item.qtd < 1) item.qtd = 1;
+      renderCarrinho();
+      updateCartCount();
+    };
+
+    // Remover item
+    window.removeItem = function(id) {
+      carrinho = carrinho.filter(i => i.id !== id);
+      renderCarrinho();
+      updateCartCount();
+    };
+
+    // Atualizar contador do carrinho
+    function updateCartCount() {
+      let total = carrinho.reduce((sum, i) => sum + i.qtd, 0);
+      cartCount.textContent = total;
+    }
+
+    // Inicialização
+    updateCartCount();
+    renderCarrinho();
+  </script>
+
+<footer class="rodape">
+  <section class="newsletter">
+    <h2>ACESSE NOSSO GRUPO</h2>
+    <p>RECEBA OFERTAS E NOVIDADES POR EMAIL</p>
+    <form class="form-newsletter">
+      <input type="text" placeholder="Digite seu Nome" class="input-nome">
+      <input type="email" placeholder="Digite seu E-mail" class="input-email">
+      <button type="submit" class="btn-cadastrar">CADASTRAR</button>
+    </form>
+    <div class="checkbox">
+      <input type="checkbox" id="aceito">
+      <label for="aceito">Aceito receber informes publicitários e promoções através da newsletter.</label>
+    </div>
+  </section>
+  <section class="links-rodape">
+    <div class="coluna">
+      <h3>SOBRE</h3>
+      <ul>
+        <li><a href="#">História</a></li>
+        <li><a href="#">Seja um franqueado</a></li>
+        <li><a href="#">Trabalhe conosco</a></li>
+        <li><a href="#">Conecte-se</a></li>
+        <li><a href="#">Mapa do Site</a></li>
+      </ul>
+    </div>
+    <div class="coluna">
+      <h3>CONTA</h3>
+      <ul>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Minha Conta</a></li>
+        <li><a href="#">Meus pedidos</a></li>
+        <li><a href="#">Wishlist</a></li>
+      </ul>
+    </div>
+    <div class="coluna">
+      <h3>ATENDIMENTO</h3>
+      <ul>
+        <li><a href="#">Compra Segura</a></li>
+        <li><a href="#">Formas de Pagamento</a></li>
+        <li><a href="#">Entrega e Frete</a></li>
+        <li><a href="#">Trocas e Devoluções</a></li>
+        <li><a href="#">Meus pedidos</a></li>
+      </ul>
+    </div>
+    <div class="coluna">
+      <h3>NOSSAS LOJAS</h3>
+      <ul>
+        <li><a href="#">Encontre a loja mais perto</a></li>
+      </ul>
+    </div>
+  </section>
+</footer>
+
+
+
+</body>
+</html>

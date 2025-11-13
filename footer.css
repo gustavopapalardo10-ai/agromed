@@ -1,0 +1,96 @@
+.rodape {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.newsletter {
+  text-align: center;
+  background-color: #333;
+  padding: 40px 20px;
+  margin-bottom: 40px;
+}
+
+.newsletter h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.newsletter p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.form-newsletter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-nome, .input-email {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 200px;
+}
+
+.btn-cadastrar {
+  padding: 10px 20px;
+  background-color: #2391ad;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cadastrar:hover {
+  background-color: #1b748c;
+}
+
+.checkbox {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.links-rodape {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.coluna {
+  flex: 1;
+  min-width: 200px;
+}
+
+.coluna h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.coluna ul {
+  list-style: none;
+  padding: 0;
+}
+
+.coluna ul li {
+  margin-bottom: 8px;
+}
+
+.coluna ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.coluna ul li a:hover {
+  text-decoration: underline;
+}
